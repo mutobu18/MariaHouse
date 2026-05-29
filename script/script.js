@@ -130,3 +130,14 @@ function uploadImage(event) {
     document.getElementById("upload-status").innerText =
         "Uploaded: " + file.name + " (Waiting for admin response)";
 }
+
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop real form submission
+
+    alert("Order sent successfully");
+
+    // redirect to home page after short delay
+    setTimeout(function() {
+        window.location.href = "index.html"; // change if your home page is different
+    }, 1000);
+});
