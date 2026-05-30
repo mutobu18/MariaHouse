@@ -107,15 +107,28 @@ function pay() {
         return;
     }
 
-    // Save cart in browser storage
+    // Save current cart for checkout page
     localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
 
-    // Go to checkout page
+    // Save order history
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price * item.quantity;
+    });
+
+    orders.push({
+        date: new Date().toLocaleString(),
+        items: [...cart],
+        total: total
+    });
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+
     window.location.href = "checkout.html";
 }
-    // Later you can send to backend here
-    // fetch("save_order.php", { ... })
-
 
 // =========================
 // IMAGE UPLOAD (optional feature)

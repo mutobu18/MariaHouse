@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities - MariaHouse</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- HEADER -->
+    <header class="brand-header">
+        <div class="logo">Maria<span>House</span></div>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="activities.html">Activities</a>
+            <a href="notifications.html">Notifications</a>
+            <a href="contact.html">Contact MariaHouse</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <h2>My Activities</h2>
+
+        <p class="store-description">
+            View all your previous orders and the total amount spent.
+        </p>
+
+        <div class="category-section">
+
+            <h3 class="category-title">Order History</h3>
+
+            <div id="orders-list">
+                <p>No orders found.</p>
+            </div>
+
+        </div>
+
+        <div class="category-section">
+
+            <h3 class="category-title">Total Orders Summary</h3>
+
+            <p>
+                <strong>Total Orders:</strong>
+                <span id="total-orders">0</span>
+            </p>
+
+            <p>
+                <strong>Total Amount Spent:</strong>
+                <span id="total-spent">$0.00</span>
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="/script/activities.js"></script>
+
+</body>
+</html>
