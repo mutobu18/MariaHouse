@@ -8,7 +8,7 @@
 
 <body>
 
-    <body>
+    
 
 <div class="app-container">
 
@@ -51,7 +51,53 @@
 
 <button onclick="pay()">Proceed to Payment</button>
 
+
+
 <script src="script/script.js"></script>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
+
+    function loadCartPage() {
+
+        let cartItems = document.getElementById("cart-items");
+        let totalElement = document.getElementById("total");
+        let cartCount = document.getElementById("cart-count");
+
+        cartItems.innerHTML = "";
+
+        let total = 0;
+        let totalItems = 0;
+
+        if (cart.length === 0) {
+            cartItems.innerHTML = "<p>No products selected</p>";
+            totalElement.textContent = "$0.00";
+            cartCount.textContent = 0;
+            return;
+        }
+
+        cart.forEach(item => {
+
+            let subtotal = item.price * item.quantity;
+
+            total += subtotal;
+            totalItems += item.quantity;
+
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <h4>${item.name}</h4>
+                    <p>$${item.price.toFixed(2)} x ${item.quantity}</p>
+                    <p>Subtotal: $${subtotal.toFixed(2)}</p>
+                </div>
+            `;
+        });
+
+        totalElement.textContent = "$" + total.toFixed(2);
+        cartCount.textContent = totalItems;
+    }
+
+    document.addEventListener("DOMContentLoaded", loadCartPage);
+</script>
 
 </body>
 </html>

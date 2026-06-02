@@ -1,112 +1,117 @@
-
 // =========================
-// MARIAHOUSE SHOPPING CART
+// MARIAHOUSE CART SYSTEM (CLEAN FIXED)
 // =========================
 
 let cart = [];
 
-let cart = [];
-let total = 0;
+// =========================
+// INIT
+// =========================
+document.addEventListener("DOMContentLoaded", function () {
+    loadCart();
+});
 
 // =========================
-// ADD PRODUCT TO CART
+// LOAD CART
 // =========================
+function loadCart() {
 
-function selectProduct(name, price) {
+    let saved = localStorage.getItem("mariahouse_cart");
 
-    cart.push({
-        name: name,
-        price: price
-    });
-
-    total += price;
+    if (saved) {
+        cart = JSON.parse(saved);
+    }
 
     updateCart();
 }
 
+// =========================
+// ADD PRODUCT
+// =========================
+function selectProduct(name, price) {
+
+    let existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    saveCart();
+    updateCart();
+    showMessage("✔ Added to cart");
+}
+
+// =========================
+// SAVE CART
+// =========================
+function saveCart() {
+    localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
+}
+
+// =========================
+// UPDATE CART + COUNTER
+// =========================
 function updateCart() {
 
     let cartItems = document.getElementById("cart-items");
     let cartCount = document.getElementById("cart-count");
 
-    cartCount.textContent = cart.length;
-
-    if(cart.length === 0){
-        cartItems.innerHTML = "<p>No products selected</p>";
-        return;
+    if (cartItems) {
+        cartItems.innerHTML = "";
     }
 
-    let html = "";
-
-    cart.forEach(item => {
-        html += `
-            <div>
-                <p>${item.name} - $${item.price}</p>
-            </div>
-        `;
-    });
-
-    cartItems.innerHTML = html;
-
-    document.getElementById("total").textContent =
-        "$" + total.toFixed(2);
-}
-
-function toggleCart() {
-    document
-        .getElementById("cart-panel")
-        .classList.toggle("active");
-}
-// =========================
-// UPDATE CART DISPLAY
-// =========================
-
-function updateCart() {
-
-    const cartContainer = document.getElementById("cart-items");
-    let total = 0;
-
-    cartContainer.innerHTML = "";
+    let totalItems = 0;
 
     cart.forEach((item, index) => {
 
-        const subtotal = item.price * item.quantity;
-        total += subtotal;
+        totalItems += item.quantity;
 
-        cartContainer.innerHTML += `
-            <div class="cart-item">
+        let subtotal = item.price * item.quantity;
 
-                <h4>${item.name}</h4>
+        if (cartItems) {
+            cartItems.innerHTML += `
+                <div class="cart-item">
 
-                <p>Price: $${item.price.toFixed(2)}</p>
+                    <h4>${item.name}</h4>
 
-                <div class="cart-qty">
-                    <button onclick="changeQty(${index}, -1)">-</button>
-                    <span>${item.quantity}</span>
-                    <button onclick="changeQty(${index}, 1)">+</button>
+                    <p>$${item.price.toFixed(2)}</p>
+
+                    <div>
+                        <button onclick="changeQty(${index}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="changeQty(${index}, 1)">+</button>
+                    </div>
+
+                    <p>Subtotal: $${subtotal.toFixed(2)}</p>
+
+                    <button onclick="removeItem(${index})">Remove</button>
+
                 </div>
-
-                <p>Subtotal: $${subtotal.toFixed(2)}</p>
-
-                <button class="remove-btn" onclick="removeItem(${index})">
-                    Remove
-                </button>
-
-            </div>
-        `;
+            `;
+        }
     });
 
-    if (cart.length === 0) {
-        cartContainer.innerHTML = "<p>No products selected</p>";
+    // update cart number (HOME + ALL PAGES)
+    if (cartCount) {
+        cartCount.textContent = totalItems;
     }
 
-    document.getElementById("total").innerText = "$" + total.toFixed(2);
+    if (cart.length === 0 && cartItems) {
+        cartItems.innerHTML = "<p>No products selected</p>";
+    }
+
+    saveCart();
 }
 
 // =========================
 // CHANGE QUANTITY
 // =========================
-
 function changeQty(index, change) {
 
     cart[index].quantity += change;
@@ -119,69 +124,26 @@ function changeQty(index, change) {
 }
 
 // =========================
-// REMOVE PRODUCT
+// REMOVE ITEM
 // =========================
-
 function removeItem(index) {
     cart.splice(index, 1);
     updateCart();
 }
 
 // =========================
-// PAYMENT
+// MESSAGE POPUP
 // =========================
+function showMessage(text) {
 
-function pay() {
+    let msg = document.getElementById("cart-message");
 
-    if (cart.length === 0) {
-        alert("Please select at least one product.");
-        return;
-    }
+    if (!msg) return;
 
-    // Save current cart for checkout page
-    localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
+    msg.textContent = text;
+    msg.classList.add("show");
 
-    // Save order history
-    let orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-    let total = 0;
-
-    cart.forEach(item => {
-        total += item.price * item.quantity;
-    });
-
-    orders.push({
-        date: new Date().toLocaleString(),
-        items: [...cart],
-        total: total
-    });
-
-    localStorage.setItem("orders", JSON.stringify(orders));
-
-    window.location.href = "checkout.html";
+    setTimeout(() => {
+        msg.classList.remove("show");
+    }, 1500);
 }
-
-// =========================
-// IMAGE UPLOAD (optional feature)
-// =========================
-
-function uploadImage(event) {
-
-    let file = event.target.files[0];
-
-    if (!file) return;
-
-    document.getElementById("upload-status").innerText =
-        "Uploaded: " + file.name + " (Waiting for admin response)";
-}
-
-document.querySelector("form").addEventListener("submit", function(event) {
-    event.preventDefault(); // stop real form submission
-
-    alert("Order sent successfully");
-
-    // redirect to home page after short delay
-    setTimeout(function() {
-        window.location.href = "index.html"; // change if your home page is different
-    }, 1000);
-});
