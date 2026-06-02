@@ -1,34 +1,11 @@
 // =========================
-// MARIAHOUSE CART SYSTEM (CLEAN FIXED)
+// MARIAHOUSE CART SYSTEM (FINAL CLEAN)
 // =========================
 
-let cart = [];
-
-// =========================
-// INIT
-// =========================
-document.addEventListener("DOMContentLoaded", function () {
-    loadCart();
-});
-
-// =========================
-// LOAD CART
-// =========================
-function loadCart() {
-
-    let saved = localStorage.getItem("mariahouse_cart");
-
-    if (saved) {
-        cart = JSON.parse(saved);
-    }
-
-    updateCart();
-}
-
-// =========================
 // ADD PRODUCT
-// =========================
 function selectProduct(name, price) {
+
+    let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
 
     let existing = cart.find(item => item.name === name);
 
@@ -42,71 +19,91 @@ function selectProduct(name, price) {
         });
     }
 
-    saveCart();
-    updateCart();
+    localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
+
+    updateCartCount();
     showMessage("✔ Added to cart");
 }
 
 // =========================
-// SAVE CART
+// CART COUNT (HEADER - ALL PAGES)
 // =========================
-function saveCart() {
-    localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
+function updateCartCount() {
+
+    let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
+
+    let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    let counter = document.getElementById("cart-count");
+    if (counter) {
+        counter.textContent = totalItems;
+    }
 }
 
 // =========================
-// UPDATE CART + COUNTER
+// LOAD CART PAGE (TABLE VIEW)
 // =========================
-function updateCart() {
+function loadCartPage() {
 
-    let cartItems = document.getElementById("cart-items");
-    let cartCount = document.getElementById("cart-count");
+    let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
 
-    if (cartItems) {
-        cartItems.innerHTML = "";
-    }
+    let tableBody = document.getElementById("cart-items");
+    let totalEl = document.getElementById("total");
+    let itemsCount = document.getElementById("items-count");
+    let discountEl = document.getElementById("discount");
 
+    if (!tableBody || !totalEl || !itemsCount || !discountEl) return;
+
+    let total = 0;
     let totalItems = 0;
+
+    tableBody.innerHTML = "";
+
+    if (cart.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="5">No products selected</td></tr>`;
+        totalEl.textContent = "0.00";
+        itemsCount.textContent = "0";
+        discountEl.textContent = "0.00";
+        return;
+    }
 
     cart.forEach((item, index) => {
 
-        totalItems += item.quantity;
-
         let subtotal = item.price * item.quantity;
 
-        if (cartItems) {
-            cartItems.innerHTML += `
-                <div class="cart-item">
+        total += subtotal;
+        totalItems += item.quantity;
 
-                    <h4>${item.name}</h4>
+        tableBody.innerHTML += `
+            <tr>
+                <td>${item.name}</td>
+                <td>$${item.price.toFixed(2)}</td>
 
-                    <p>$${item.price.toFixed(2)}</p>
+                <td>
+                    <button onclick="changeQty(${index}, -1)">-</button>
+                    ${item.quantity}
+                    <button onclick="changeQty(${index}, 1)">+</button>
+                </td>
 
-                    <div>
-                        <button onclick="changeQty(${index}, -1)">-</button>
-                        <span>${item.quantity}</span>
-                        <button onclick="changeQty(${index}, 1)">+</button>
-                    </div>
+                <td>$${subtotal.toFixed(2)}</td>
 
-                    <p>Subtotal: $${subtotal.toFixed(2)}</p>
-
-                    <button onclick="removeItem(${index})">Remove</button>
-
-                </div>
-            `;
-        }
+                <td>
+                    <button onclick="removeItem(${index})"
+                        style="background:red;color:white;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        `;
     });
 
-    // update cart number (HOME + ALL PAGES)
-    if (cartCount) {
-        cartCount.textContent = totalItems;
-    }
+    // Discount logic (optional)
+    let discount = total > 100 ? total * 0.1 : 0;
+    let finalTotal = total - discount;
 
-    if (cart.length === 0 && cartItems) {
-        cartItems.innerHTML = "<p>No products selected</p>";
-    }
-
-    saveCart();
+    itemsCount.textContent = totalItems;
+    discountEl.textContent = discount.toFixed(2);
+    totalEl.textContent = finalTotal.toFixed(2);
 }
 
 // =========================
@@ -114,25 +111,37 @@ function updateCart() {
 // =========================
 function changeQty(index, change) {
 
+    let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
+
     cart[index].quantity += change;
 
     if (cart[index].quantity <= 0) {
         cart.splice(index, 1);
     }
 
-    updateCart();
+    localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
+
+    loadCartPage();
+    updateCartCount();
 }
 
 // =========================
 // REMOVE ITEM
 // =========================
 function removeItem(index) {
+
+    let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
+
     cart.splice(index, 1);
-    updateCart();
+
+    localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
+
+    loadCartPage();
+    updateCartCount();
 }
 
 // =========================
-// MESSAGE POPUP
+// POPUP MESSAGE
 // =========================
 function showMessage(text) {
 
@@ -147,3 +156,14 @@ function showMessage(text) {
         msg.classList.remove("show");
     }, 1500);
 }
+
+// =========================
+// INIT (RUN ON EVERY PAGE)
+// =========================
+document.addEventListener("DOMContentLoaded", function () {
+    updateCartCount();
+
+    if (typeof loadCartPage === "function") {
+        loadCartPage();
+    }
+});

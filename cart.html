@@ -8,28 +8,28 @@
 
 <body>
 
-    
 
-<div class="app-container">
-
-   <header class="brand-header">
+     <div class="app-container">
+         
+    <!-- HEADER -->
+    <header class="brand-header">
 
     <img src="images/IMG_E2786.JPG" alt="MariaHouse Logo" class="logo-image">
 
     <div class="logo">Maria<span>House</span></div>
 
     <nav class="navbar">
-        <a href="index.html">Home</a>
 
-         <!-- Cart Button -->
-        <a href="cart.html" class="cart-btn">
-            🛒 Cart <span id="cart-count">0</span>
-        </a>
+
+       <a href="cart.html" class="cart-btn">
+    🛒 Cart <span id="cart-count">0</span>
+</a>
 
         <div class="dropdown">
             <button class="menu-btn">☰ Menu</button>
 
             <div class="dropdown-content">
+                 <a href="index.html">Home</a>
                 <a href="activities.html">Activities</a>
                 <a href="notifications.html">Notifications</a>
                 <a href="contact.html">Contact MariaHouse</a>
@@ -41,18 +41,49 @@
 
 </header>
 
-<h2>Your Shopping Cart</h2>
 
-<div id="cart-items">
-    <p>No products selected</p>
+    
+
+<div class="cart-container">
+
+    <div class="cart-card">
+
+        <h2>Your Shopping Cart</h2>
+
+        <table class="cart-table">
+
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+            <tbody id="cart-items">
+                <tr><td colspan="4">No products selected</td></tr>
+            </tbody>
+
+        </table>
+
+        <div class="cart-summary">
+
+            <p><strong>Items:</strong> <span id="items-count">0</span></p>
+
+            <p><strong>Discount:</strong> $<span id="discount">0.00</span></p>
+
+            <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+
+        </div>
+
+        <button class="pay-btn" onclick="pay()">
+            Proceed to Payment
+        </button>
+
+    </div>
+
 </div>
-
-<h3>Total: <span id="total">$0.00</span></h3>
-
-<button onclick="pay()">Proceed to Payment</button>
-
-
-
 <script src="script/script.js"></script>
 
 <script>
@@ -96,7 +127,9 @@
         cartCount.textContent = totalItems;
     }
 
-    document.addEventListener("DOMContentLoaded", loadCartPage);
+   document.addEventListener("DOMContentLoaded", function () {
+    loadCartPage();
+});
 </script>
 
 </body>
