@@ -598,4 +598,40 @@ button:hover {
     transform: translateY(0);
 }
 
+/* =========================
+   PRODUCT IMAGE FIX (RESPONSIVE)
+========================= */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+/* PRODUCT CARD */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+/* IMAGE FIX */
+.product-image {
+    width: 100%;
+    height: 160px;          /* smaller for mobile */
+    object-fit: cover;      /* prevents stretching */
+    display: block;
+}
+
+/* TEXT */
+.product-card p {
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+/* BUTTON */
+.product
 
