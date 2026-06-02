@@ -246,16 +246,30 @@ body {
 ========================= */
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    display: flex;
     gap: 20px;
+    overflow-x: auto;
+    padding: 15px 0;
+    scroll-behavior: smooth;
 }
 
+/* Hide scrollbar (optional) */
+.product-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+    background: #c58b39;
+    border-radius: 10px;
+}
 /* =========================
    PRODUCT CARD
 ========================= */
 
 .product-card {
+    min-width: 250px; /* important */
+    flex-shrink: 0;   /* important */
+
     background: white;
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -284,7 +298,6 @@ body {
     font-weight: bold;
     font-size: 17px;
 }
-
 /* =========================
    BUTTONS
 ========================= */
