@@ -5,27 +5,58 @@
 
 let cart = [];
 
+let cart = [];
+let total = 0;
+
 // =========================
 // ADD PRODUCT TO CART
 // =========================
 
 function selectProduct(name, price) {
 
-    let existingProduct = cart.find(item => item.name === name);
+    cart.push({
+        name: name,
+        price: price
+    });
 
-    if (existingProduct) {
-        existingProduct.quantity++;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1
-        });
-    }
+    total += price;
 
     updateCart();
 }
 
+function updateCart() {
+
+    let cartItems = document.getElementById("cart-items");
+    let cartCount = document.getElementById("cart-count");
+
+    cartCount.textContent = cart.length;
+
+    if(cart.length === 0){
+        cartItems.innerHTML = "<p>No products selected</p>";
+        return;
+    }
+
+    let html = "";
+
+    cart.forEach(item => {
+        html += `
+            <div>
+                <p>${item.name} - $${item.price}</p>
+            </div>
+        `;
+    });
+
+    cartItems.innerHTML = html;
+
+    document.getElementById("total").textContent =
+        "$" + total.toFixed(2);
+}
+
+function toggleCart() {
+    document
+        .getElementById("cart-panel")
+        .classList.toggle("active");
+}
 // =========================
 // UPDATE CART DISPLAY
 // =========================

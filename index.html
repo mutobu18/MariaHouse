@@ -6,25 +6,33 @@
     <title>MariaHouse Store</title>
 
     <link rel="stylesheet" href="style/style.css">
+
+
 </head>
 
 <body>
 
 <div class="app-container">
 
-    <!-- HEADER -->
-    <header class="brand-header">
-        <img src="images/IMG_E2786.JPG" alt="MariaHouse Logo" class="logo-image">
-        <div class="logo">Maria<span>House</span></div>
+   <header class="brand-header">
+    <img src="images/IMG_E2786.JPG" alt="MariaHouse Logo" class="logo-image">
+    <div class="logo">Maria<span>House</span></div>
 
-        <nav class="navbar">
-            <a href="index.html">Home</a>
-            <a href="activities.html">Activities</a>
-            <a href="notifications.html">Notifications</a>
-            <a href="contact.html">Contact MariaHouse</a>
-            
-        </nav>
-    </header>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="activities.html">Activities</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="contact.html">Contact MariaHouse</a>
+    </nav>
+
+    <div class="cart-icon" onclick="window.location.href='cart.html'">
+    🛒 <span id="cart-count">0</span>
+</div>
+</header>
+
+
+
+</div>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
@@ -98,6 +106,14 @@
                     <p>$30.00</p>
                     <button onclick="selectProduct('Massai Sandale Premium',30)">Select</button>
                 </div>
+
+                <div class="product-card">
+                    <img src="images/massai premum2.jpg" alt="Massai Sandale Premium" class="product-image">
+                    <p>Massai Sandale Premium</p>
+                    <p>$30.00</p>
+                    <button onclick="selectProduct('Massai Sandale Premium',30)">Select</button>
+                </div>
+
 
             </div>
 
@@ -297,31 +313,7 @@
 
     </main>
 
-    <!-- SHOPPING CART -->
-<aside class="sidebar-panel">
-
-    <h3>Shopping Cart</h3>
-
-    <!-- SCROLLABLE AREA -->
-    <div id="cart-items" class="cart-box">
-        <p>No products selected</p>
-    </div>
-
-    <!-- FIXED BOTTOM AREA -->
-    <div class="cart-footer">
-
-        <p>
-            <strong>Total:</strong>
-            <span id="total">$0.00</span>
-        </p>
-
-        <button onclick="pay()">
-            Proceed to Payment
-        </button>
-
-    </div>
-
-</aside>
+    
 
 </div>
 
