@@ -34,3 +34,61 @@
 .receipt-card button:hover {
     background: #a0005d;
 }
+
+/* =========================
+   MOBILE APP STYLE FIX
+========================= */
+
+@media (max-width: 768px) {
+
+    /* Make layout behave like mobile app */
+    .app-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    /* Header becomes tighter */
+    .brand-header {
+        padding: 15px;
+    }
+
+    /* Logo smaller but clean */
+    .logo {
+        font-size: 24px;
+    }
+
+    .logo-image {
+        width: 55px;
+        height: 60px;
+    }
+
+    /* MAIN CARDS FULL WIDTH */
+    .checkout-card,
+    .cart-card,
+    .payment-card,
+    .receipt-card {
+        width: 100%;
+        margin: 15px 0;
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    /* BUTTONS BIG LIKE MOBILE APPS */
+    button {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    /* PRODUCT CARDS LOOK BIGGER */
+    .product-card {
+        min-width: 85%;
+    }
+
+    /* TEXT IMPROVEMENT */
+    body {
+        font-size: 15px;
+    }
+}
