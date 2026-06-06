@@ -55,13 +55,16 @@ function loadReceipt() {
         return;
     }
 
-    document.getElementById("customer-name").innerText = "Name: " + data.name;
-    document.getElementById("customer-city").innerText = "City: " + data.city;
+    let name = localStorage.getItem("customer_name");
+    let city = localStorage.getItem("customer_city");
+
+    document.getElementById("customer-name").innerText = "Name: " + name;
+    document.getElementById("customer-city").innerText = "City: " + city;
+
     document.getElementById("date").innerText = "Date: " + data.date;
     document.getElementById("receipt-items").innerHTML = data.items;
     document.getElementById("total").innerText = "TOTAL: $" + data.total;
 }
-
 // =========================
 // SEND TO WHATSAPP
 // =========================
@@ -69,11 +72,14 @@ function sendWhatsApp() {
 
     let data = JSON.parse(localStorage.getItem("mariahouse_receipt"));
 
+    let name = localStorage.getItem("customer_name");
+    let city = localStorage.getItem("customer_city");
+
     let text =
 `🧾 MARIAHOUSE RECEIPT
 
-👤 Name: ${data.name}
-🏙 City: ${data.city}
+👤 Name: ${name}
+🏙 City: ${city}
 📅 Date: ${data.date}
 
 ${data.items.replace(/<p>/g, "").replace(/<\/p>/g, "\n")}
@@ -87,15 +93,6 @@ Thank you for shopping with MariaHouse ❤️`;
     let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 
     window.open(url, "_blank");
-}
-
-// =========================
-// FINISH ORDER
-// =========================
-function clearCart() {
-    localStorage.removeItem("mariahouse_cart");
-    localStorage.removeItem("mariahouse_receipt");
-    window.location.href = "index.html";
 }
 
 // =========================

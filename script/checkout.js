@@ -34,6 +34,18 @@ function loadCart() {
 
 // ✅ PAYMENT BUTTON FUNCTION
 function goToPayment() {
+
+    let name = document.getElementById("customer-name").value;
+    let city = document.getElementById("customer-city").value;
+
+    if (!name || !city) {
+        alert("Please enter your name and city");
+        return;
+    }
+
+    localStorage.setItem("customer_name", name);
+    localStorage.setItem("customer_city", city);
+
     window.location.href = "payment.html";
 }
 

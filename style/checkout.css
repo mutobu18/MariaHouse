@@ -76,3 +76,21 @@
         font-size: 22px;
     }
 }
+
+.customer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.customer-form input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.customer-form input:focus {
+    border-color: #d1007a;
+}
