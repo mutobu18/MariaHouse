@@ -3,8 +3,15 @@
 // =========================
 
 // ADD PRODUCT
-function selectProduct(name, price) {
+function selectProduct(button, name, price) {
 
+    // CHANGE BUTTON STATE
+    button.innerText = "Selected";
+    button.style.backgroundColor = "green";
+    button.style.color = "white";
+    button.disabled = true;
+
+    // CART LOGIC
     let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
 
     let existing = cart.find(item => item.name === name);
@@ -24,7 +31,6 @@ function selectProduct(name, price) {
     updateCartCount();
     showMessage("✔ Added to cart");
 }
-
 // =========================
 // CART COUNT (HEADER - ALL PAGES)
 // =========================

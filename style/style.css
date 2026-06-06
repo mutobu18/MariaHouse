@@ -355,3 +355,8 @@ button:hover {
         height: 140px;
     }
 }
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
