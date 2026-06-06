@@ -171,3 +171,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+function sendOrder() {
+
+    let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
+
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    let total = 0;
+    let receiptHTML = "";
+
+    cart.forEach(item => {
+        let subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        receiptHTML += `
+            <p>${item.name} x ${item.quantity} = $${subtotal.toFixed(2)}</p>
+        `;
+    });
+
+    let receipt = {
+        items: receiptHTML,
+        total: total.toFixed(2),
+        date: new Date().toLocaleString()
+    };
+
+    localStorage.setItem("mariahouse_receipt", JSON.stringify(receipt));
+
+    // Go to receipt page
+    window.location.href = "receipt.html";
+}

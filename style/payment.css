@@ -90,3 +90,13 @@
         font-size: 22px;
     }
 }
+
+#receipt-box {
+    white-space: pre-line;
+    background: #fff3f8;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #ff9800;
+    margin-top: 15px;
+    font-family: monospace;
+}

@@ -1,0 +1,36 @@
+.receipt-card {
+    max-width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.receipt-card h2 {
+    color: #d1007a;
+}
+
+#receipt-items {
+    text-align: left;
+    background: #fff3f8;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.receipt-card button {
+    margin-top: 10px;
+    background: #d1007a;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.receipt-card button:hover {
+    background: #a0005d;
+}

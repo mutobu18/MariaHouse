@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt - MariaHouse</title>
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/receipt.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <div class="receipt-card">
+
+        <h2>🧾 MariaHouse Receipt</h2>
+
+        <p id="date"></p>
+
+        <div id="receipt-items"></div>
+
+        <h3 id="total"></h3>
+
+        <button onclick="sendWhatsApp()">
+            Send to WhatsApp
+        </button>
+
+        <button onclick="clearCart()">
+            Finish Order
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+function loadReceipt() {
+
+    let data = JSON.parse(localStorage.getItem("mariahouse_receipt"));
+
+    if (!data) {
+        document.body.innerHTML = "<h2>No receipt found</h2>";
+        return;
+    }
+
+    document.getElementById("date").innerText = "Date: " + data.date;
+    document.getElementById("receipt-items").innerHTML = data.items;
+    document.getElementById("total").innerText = "TOTAL: $" + data.total;
+}
+
+function sendWhatsApp() {
+
+    let data = JSON.parse(localStorage.getItem("mariahouse_receipt"));
+
+    let text = `🧾 MARIAHOUSE RECEIPT\n\n` +
+               data.items.replace(/<p>/g, "").replace(/<\/p>/g, "\n") +
+               `\nTOTAL: $${data.total}`;
+
+    let phone = "254799457771";
+
+    let url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, "_blank");
+}
+
+function clearCart() {
+    localStorage.removeItem("mariahouse_cart");
+    localStorage.removeItem("mariahouse_receipt");
+    window.location.href = "index.html";
+}
+
+document.addEventListener("DOMContentLoaded", loadReceipt);
+</script>
+
+</body>
+</html>
