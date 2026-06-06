@@ -1,5 +1,6 @@
 let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
 
+// LOAD CART
 function loadCart() {
 
     let container = document.getElementById("order-summary");
@@ -8,6 +9,12 @@ function loadCart() {
     let total = 0;
 
     container.innerHTML = "";
+
+    if (cart.length === 0) {
+        container.innerHTML = "<p>No products selected</p>";
+        totalBox.innerText = "Total: $0.00";
+        return;
+    }
 
     cart.forEach(item => {
 
@@ -25,9 +32,12 @@ function loadCart() {
     totalBox.innerText = "Total: $" + total.toFixed(2);
 }
 
+// ✅ PAYMENT BUTTON FUNCTION
 function goToPayment() {
-
     window.location.href = "payment.html";
 }
 
-loadCart();
+// RUN WHEN PAGE LOADS
+document.addEventListener("DOMContentLoaded", function () {
+    loadCart();
+});
