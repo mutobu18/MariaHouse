@@ -16,12 +16,20 @@
 
         <h2>🧾 MariaHouse Receipt</h2>
 
+        <!-- CUSTOMER INFO -->
+        <p id="customer-name"></p>
+        <p id="customer-city"></p>
+
+        <!-- DATE -->
         <p id="date"></p>
 
+        <!-- ITEMS -->
         <div id="receipt-items"></div>
 
+        <!-- TOTAL -->
         <h3 id="total"></h3>
 
+        <!-- BUTTONS -->
         <button onclick="sendWhatsApp()">
             Send to WhatsApp
         </button>
@@ -35,6 +43,9 @@
 </div>
 
 <script>
+// =========================
+// LOAD RECEIPT
+// =========================
 function loadReceipt() {
 
     let data = JSON.parse(localStorage.getItem("mariahouse_receipt"));
@@ -44,18 +55,32 @@ function loadReceipt() {
         return;
     }
 
+    document.getElementById("customer-name").innerText = "Name: " + data.name;
+    document.getElementById("customer-city").innerText = "City: " + data.city;
     document.getElementById("date").innerText = "Date: " + data.date;
     document.getElementById("receipt-items").innerHTML = data.items;
     document.getElementById("total").innerText = "TOTAL: $" + data.total;
 }
 
+// =========================
+// SEND TO WHATSAPP
+// =========================
 function sendWhatsApp() {
 
     let data = JSON.parse(localStorage.getItem("mariahouse_receipt"));
 
-    let text = `🧾 MARIAHOUSE RECEIPT\n\n` +
-               data.items.replace(/<p>/g, "").replace(/<\/p>/g, "\n") +
-               `\nTOTAL: $${data.total}`;
+    let text =
+`🧾 MARIAHOUSE RECEIPT
+
+👤 Name: ${data.name}
+🏙 City: ${data.city}
+📅 Date: ${data.date}
+
+${data.items.replace(/<p>/g, "").replace(/<\/p>/g, "\n")}
+
+💰 TOTAL: $${data.total}
+
+Thank you for shopping with MariaHouse ❤️`;
 
     let phone = "254799457771";
 
@@ -64,12 +89,18 @@ function sendWhatsApp() {
     window.open(url, "_blank");
 }
 
+// =========================
+// FINISH ORDER
+// =========================
 function clearCart() {
     localStorage.removeItem("mariahouse_cart");
     localStorage.removeItem("mariahouse_receipt");
     window.location.href = "index.html";
 }
 
+// =========================
+// INIT
+// =========================
 document.addEventListener("DOMContentLoaded", loadReceipt);
 </script>
 
