@@ -3,15 +3,12 @@
 // =========================
 
 // ADD PRODUCT
-function selectProduct(button, name, price) {
+function selectProduct(button, name, price, image) {
 
-    // CHANGE BUTTON STATE
     button.innerText = "Selected";
     button.style.backgroundColor = "green";
-    button.style.color = "white";
     button.disabled = true;
 
-    // CART LOGIC
     let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
 
     let existing = cart.find(item => item.name === name);
@@ -22,7 +19,8 @@ function selectProduct(button, name, price) {
         cart.push({
             name: name,
             price: price,
-            quantity: 1
+            quantity: 1,
+            image: image   // ✅ ADD IMAGE HERE
         });
     }
 
@@ -31,7 +29,6 @@ function selectProduct(button, name, price) {
     updateCartCount();
     showMessage("✔ Added to cart");
 }
-// =========================
 // CART COUNT (HEADER - ALL PAGES)
 // =========================
 function updateCartCount() {
@@ -173,3 +170,4 @@ document.addEventListener("DOMContentLoaded", function () {
         loadCartPage();
     }
 });
+

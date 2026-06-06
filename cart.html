@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Shopping Cart - MariaHouse</title>
+
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/cart.css">
 </head>
@@ -77,7 +78,8 @@
 
             </div>
 
-            <button class="pay-btn" onclick="pay()">
+            <!-- FIXED BUTTON -->
+            <button class="pay-btn" onclick="goToCheckout()">
                 Proceed to Payment
             </button>
 
@@ -94,6 +96,19 @@
     document.addEventListener("DOMContentLoaded", function () {
         loadCartPage();
     });
+
+    // ✅ FIXED FUNCTION (THIS WAS MISSING BEFORE)
+    function goToCheckout() {
+
+        let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
+
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        window.location.href = "checkout.html";
+    }
 </script>
 
 </body>
