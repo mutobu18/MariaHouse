@@ -360,3 +360,15 @@ button:disabled {
     opacity: 0.7;
     cursor: not-allowed;
 }
+
+@media (max-width: 600px) {
+
+    .logo-image {
+        width: 55px;
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+}
