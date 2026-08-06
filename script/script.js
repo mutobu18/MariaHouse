@@ -3,32 +3,67 @@
 // =========================
 
 // ADD PRODUCT
-function selectProduct(button, name, price, image) {
+function selectProduct(id, name, price, image) {
 
-    button.innerText = "Selected";
-    button.style.backgroundColor = "green";
-    button.disabled = true;
+    // Hide Add button
+    document.getElementById("add-btn-" + id).style.display = "none";
+
+    // Show quantity box
+    document.getElementById("qty-box-" + id).style.display = "flex";
+
+    // Set quantity to 1
+    document.getElementById("qty-" + id).innerText = 1;
 
     let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
 
-    let existing = cart.find(item => item.name === name);
+    let existing = cart.find(item => item.id === id);
 
-    if (existing) {
-        existing.quantity += 1;
-    } else {
-        cart.push({
-            name: name,
-            price: price,
-            quantity: 1,
-            image: image   // ✅ ADD IMAGE HERE
-        });
-    }
+if (existing) {
+    existing.quantity++;
+    document.getElementById("qty-" + id).innerText = existing.quantity;
+} else {
+    cart.push({
+        id: id,
+        name: name,
+        price: price,
+        quantity: 1,
+        image: image
+    });
 
+    document.getElementById("qty-" + id).innerText = 1;
     localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
-
-    updateCartCount();
-    showMessage("✔ Added to cart");
 }
+
+updateCartCount();
+showMessage("✔ Added to cart");
+}
+
+    function changeProductQty(id, change) {
+
+    let qty = document.getElementById("qty-" + id);
+
+    let number = parseInt(qty.innerText);
+
+    number += change;
+    qty.innerText = number;
+
+   let cart = JSON.parse(localStorage.getItem("mariahouse_cart")) || [];
+
+let product = cart.find(item => item.id === id);
+
+if (product) {
+    product.quantity = number;
+}
+
+localStorage.setItem("mariahouse_cart", JSON.stringify(cart));
+
+updateCartCount();
+
+    }
+    
+
+   
+
 // CART COUNT (HEADER - ALL PAGES)
 // =========================
 function updateCartCount() {
@@ -80,6 +115,7 @@ function loadCartPage() {
         tableBody.innerHTML += `
             <tr>
                 <td>${item.name}</td>
+                <td>${item.id}</td>
                 <td>$${item.price.toFixed(2)}</td>
 
                 <td>

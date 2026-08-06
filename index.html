@@ -65,12 +65,45 @@
 
             
                
-                <div class="product-card">
-                    <img src="images/Sandales.jpg" alt="Massai Sandale" class="product-image">
-                    <p>Massai Sandale</p>
-                    <p>$7.00</p>
-                    <button onclick="selectProduct(this,'Massai Sandale',25,'Sandales.jpg')">Select</button>
-                </div>
+               <div class="product-card">
+
+    <img src="images/Sandales.jpg"
+         alt="Massai Sandale"
+         class="product-image">
+
+    <p>Massai Sandale</p>
+
+    <p>$7.00</p>
+
+    <button
+        id="add-btn-1"
+        class="add-btn"
+        onclick="selectProduct(1,'Massai Sandale',7,'Sandales.jpg')">
+        Add
+    </button>
+
+    <div
+        id="qty-box-1"
+        class="qty-box"
+        style="display:none;">
+
+        <button
+            class="qty-btn"
+            onclick="changeProductQty(1,-1)">
+            -
+        </button>
+
+        <span id="qty-1" class="qty-number">1</span>
+
+        <button
+            class="qty-btn"
+            onclick="changeProductQty(1,1)">
+            +
+        </button>
+
+    </div>
+
+</div>
 
                 
               
@@ -79,42 +112,72 @@
                     <img src="images/classicSandles1.jpg" alt="Massai Sandale Classic" class="product-image">
                     <p>Massai Sandale Classic</p>
                     <p>$7.00</p>
-                    <button onclick="selectProduct(this,'Massai Sandale Classic',25,'classicSandles1.jpg')">Select</button>
+                    <button id="add-btn-2" class="add-btn" onclick="selectProduct(2,'Massai Sandale Classic',7,'classicSandles1.jpg')">Add</button>
+                    <div id="qty-box-2" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(2,-1)">-</button>
+                        <span id="qty-2" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(2,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/classicSandales3.jpg" alt="Massai Sandale Classic" class="product-image">
                     <p>Massai Sandale Classic</p>
                     <p>$7.00</p>
-                    <button onclick="selectProduct(this,'Massai Sandale Classic',25,'classicSandales3.jpg')">Select</button>
+                    <button id="add-btn-3" class="add-btn" onclick="selectProduct(3,'Massai Sandale Classic',7,'classicSandales3.jpg')">Add</button>
+                    <div id="qty-box-3" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(3,-1)">-</button>
+                        <span id="qty-3" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(3,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/classicsandales4.jpg" alt="Massai Sandale Classic" class="product-image">
                     <p>Massai Sandale Classic</p>
                     <p>$7.00</p>
-                    <button onclick="selectProduct(this,'Massai Sandale Classic',25,'classicsandales4.jpg')">Select</button>
+                    <button id="add-btn-4" class="add-btn" onclick="selectProduct(4,'Massai Sandale Classic',7,'classicsandales4.jpg')">Add</button>
+                    <div id="qty-box-4" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(4,-1)">-</button>
+                        <span id="qty-4" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(4,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/classic sandales5.jpg" alt="Massai Sandale Classic" class="product-image">
                     <p>Massai Sandale Classic</p>
                     <p>$7.00</p>
-                    <button onclick="selectProduct(this,'Massai Sandale Classic',25,'classic sandales5.jpg')">Select</button>
+                    <button id="add-btn-5" class="add-btn" onclick="selectProduct(5,'Massai Sandale Classic',7,'classic sandales5.jpg')">Add</button>
+                    <div id="qty-box-5" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(5,-1)">-</button>
+                        <span id="qty-5" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(5,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/PremiumSandales1.jpg" alt="Massai Sandale Premium" class="product-image">
                     <p>Massai Sandale Premium</p>
                     <p>$10.00</p>
-                    <button onclick="selectProduct(this,'Massai Sandale Premium',30,'PremiumSandales1.jpg')">Select</button>
+                    <button id="add-btn-6" class="add-btn" onclick="selectProduct(6,'Massai Sandale Premium',10,'PremiumSandales1.jpg')">Add</button>
+                    <div id="qty-box-6" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(6,-1)">-</button>
+                        <span id="qty-6" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(6,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/massai premum2.jpg" alt="Massai Sandale Premium" class="product-image">
                     <p>Massai Sandale Premium</p>
                     <p>$10.00</p>
-                    <button onclick="selectProduct(this,'Massai Sandale Premium',30,'massai premum2.jpg')">Select</button>
+                    <button id="add-btn-7" class="add-btn" onclick="selectProduct(7,'Massai Sandale Premium',10,'massai premum2.jpg')">Add</button>
+                    <div id="qty-box-7" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(7,-1)">-</button>
+                        <span id="qty-7" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(7,1)">+</button>
+                    </div>
                 </div>
 
 
@@ -134,7 +197,12 @@
                     <img src="images/porte2.jpg" alt="Portefeuille" class="product-image">
                     <p>Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Portefeuille',15,'porte2.jpg')">Select</button>
+                    <button id="add-btn-8" class="add-btn" onclick="selectProduct(8,'Portefeuille',8,'porte2.jpg')">Add</button>
+                    <div id="qty-box-8" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(8,-1)">-</button>
+                        <span id="qty-8" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(8,1)">+</button>
+                    </div>
                 </div>
 
 
@@ -142,14 +210,24 @@
                     <img src="images/port3.jpg" alt="Portefeuille" class="product-image">
                     <p>Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Portefeuille',15,'port3.jpg')">Select</button>
+                    <button id="add-btn-9" class="add-btn" onclick="selectProduct(9,'Portefeuille',8,'port3.jpg')">Add</button>
+                    <div id="qty-box-9" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(9,-1)">-</button>
+                        <span id="qty-9" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(9,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/porte4.jpg" alt="Portefeuille" class="product-image">
                     <p>Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Portefeuille',15,'porte4.jpg')">Select</button>
+                    <button id="add-btn-10" class="add-btn" onclick="selectProduct(10,'Portefeuille',8,'porte4.jpg')">Add</button>
+                    <div id="qty-box-10" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(10,-1)">-</button>
+                        <span id="qty-10" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(10,1)">+</button>
+                    </div>
                 </div>
 
             
@@ -158,14 +236,24 @@
                     <img src="images/port6.jpg" alt="Portefeuille" class="product-image">
                     <p>Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Portefeuille',15,'port6.jpg')">Select</button>
+                    <button id="add-btn-11" class="add-btn" onclick="selectProduct(11,'Portefeuille',8,'port6.jpg')">Add</button>
+                    <div id="qty-box-11" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(11,-1)">-</button>
+                        <span id="qty-11" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(11,1)">+</button>
+                    </div>
                 </div>
 
                  <div class="product-card">
                     <img src="images/IMG_E2780.JPG" alt="Portefeuille" class="product-image">
                     <p>Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Portefeuille',15,'IMG_E2780.JPG')">Select</button>
+                    <button id="add-btn-12" class="add-btn" onclick="selectProduct(12,'Portefeuille',8,'IMG_E2780.JPG')">Add</button>
+                    <div id="qty-box-12" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(12,-1)">-</button>
+                        <span id="qty-12" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(12,1)">+</button>
+                    </div>
                 </div>
 
                 
@@ -174,21 +262,36 @@
                     <img src="images/IMG_2782.JPG" alt="Portefeuille" class="product-image">
                     <p>Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Portefeuille',15,'IMG_2782.JPG')">Select</button>
+                    <button id="add-btn-13" class="add-btn" onclick="selectProduct(13,'Portefeuille',8,'IMG_2782.JPG')">Add</button>
+                    <div id="qty-box-13" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(13,-1)">-</button>
+                        <span id="qty-13" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(13,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/portefeuiles2.jpg" alt="Mini Portefeuille" class="product-image">
                     <p>Mini Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Mini Portefeuille',12,'portefeuiles2.jpg')">Select</button>
+                    <button id="add-btn-14" class="add-btn" onclick="selectProduct(14,'Mini Portefeuille',8,'portefeuiles2.jpg')">Add</button>
+                    <div id="qty-box-14" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(14,-1)">-</button>
+                        <span id="qty-14" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(14,1)">+</button>
+                    </div>
                 </div>
 
                  <div class="product-card">
                     <img src="images/porte33.JPG" alt="Mini Portefeuille" class="product-image">
                     <p>Mini Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Mini Portefeuille',12,'porte33.JPG')">Select</button>
+                    <button id="add-btn-15" class="add-btn" onclick="selectProduct(15,'Mini Portefeuille',12,'porte33.JPG')">Add</button>
+                    <div id="qty-box-15" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(15,-1)">-</button>
+                        <span id="qty-15" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(15,1)">+</button>
+                    </div>
                 </div>
 
 
@@ -196,21 +299,36 @@
                     <img src="images/IMG_2715.jpg" alt="Mini Portefeuille" class="product-image">
                     <p>Mini Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Mini Portefeuille',12,'IMG_2715.jpg')">Select</button>
+                    <button id="add-btn-16" class="add-btn" onclick="selectProduct(16,'Mini Portefeuille',12,'IMG_2715.jpg')">Add</button>
+                    <div id="qty-box-16" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(16,-1)">-</button>
+                        <span id="qty-16" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(16,1)">+</button>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <img src="images/IMG_2732.JPG" alt="Mini Portefeuille" class="product-image">
                     <p>Mini Portefeuille</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'Mini Portefeuille',12,'IMG_2732.JPG')">Select</button>
+                    <button id="add-btn-17" class="add-btn" onclick="selectProduct(17,'Mini Portefeuille',12,'IMG_2732.JPG')">Add</button>
+                    <div id="qty-box-17" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(17,-1)">-</button>
+                        <span id="qty-17" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(17,1)">+</button>
+                    </div>
                 </div>
 
                  <div class="product-card">
                     <img src="images/IMG_2734.JPG" alt="Mini Portefeuille" class="product-image">
                     <p>Mini Portefeuille</p>
                     <p>$12.00</p>
-                    <button onclick="selectProduct(this,'Mini Portefeuille',12,'IMG_2734.JPG')">Select</button>
+                    <button id="add-btn-18" class="add-btn" onclick="selectProduct(18,'Mini Portefeuille',12,'IMG_2734.JPG')">Add</button>
+                    <div id="qty-box-18" class="qty-box" style="display:none;">
+                        <button class="qty-btn" onclick="changeProductQty(18,-1)">-</button>
+                        <span id="qty-18" class="qty-number">1</span>
+                        <button class="qty-btn" onclick="changeProductQty(18,1)">+</button>
+                    </div>
                 </div>
 
 
@@ -231,7 +349,7 @@
                     <img src="images/Massai shuka1.jpg" alt="Traditional Kigoyi" class="product-image">
                     <p>Traditional Kigoyi</p>
                     <p>$20.00</p>
-                    <button onclick="selectProduct(this,'Traditional Kigoyi',20,'Massai shuka1.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Traditional Kigoyi',20,'Massai shuka1.jpg')">Add</button>
                 </div>
 
                 
@@ -240,14 +358,14 @@
                     <img src="images/massai shuka3.jpg" alt="Massai Shuka" class="product-image">
                     <p>Massai Shuka</p>
                     <p>$22.00</p>
-                    <button onclick="selectProduct(this,'Massai Shuka',22,'massai shuka3.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Massai Shuka',22,'massai shuka3.jpg')">Add</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/massai shuka5.jpg" alt="Massai Shuka" class="product-image">
                     <p>Massai Shuka</p>
                     <p>$22.00</p>
-                    <button onclick="selectProduct(this,'Massai Shuka',22,'massai shuka5.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Massai Shuka',22,'massai shuka5.jpg')">Add</button>
                 </div>
 
             </div>
@@ -265,41 +383,41 @@
                     <img src="images/Braceless1.jpg" alt="African Bracelet" class="product-image">
                     <p>African Bracelet</p>
                     <p>$8.00</p>
-                    <button onclick="selectProduct(this,'African Bracelet',8,'Braceless1.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'African Bracelet',8,'Braceless1.jpg')">Add</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/Braceless2.jpg" alt="Beaded Bracelet" class="product-image">
                     <p>Beaded Bracelet</p>
                     <p>$10.00</p>
-                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless2.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless2.jpg')">Add</button>
                 </div>
                 <div class="product-card">
                     <img src="images/Braceless3.jpg" alt="Beaded Bracelet" class="product-image">
                     <p>Beaded Bracelet</p>
                     <p>$10.00</p>
-                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless3.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless3.jpg')">Add</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/Braceless5.jpg" alt="Beaded Bracelet" class="product-image">
                     <p>Beaded Bracelet</p>
                     <p>$10.00</p>
-                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless5.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless5.jpg')">Add</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/Braceless6.jpg" alt="Beaded Bracelet" class="product-image">
                     <p>Beaded Bracelet</p>
                     <p>$10.00</p>
-                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless6.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless6.jpg')">Add</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/Braceless7.jpg" alt="Beaded Bracelet" class="product-image">
                     <p>Beaded Bracelet</p>
                     <p>$10.00</p>
-                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless7.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Beaded Bracelet',10,'Braceless7.jpg')">Add</button>
                 </div>
 
             </div>
@@ -317,35 +435,35 @@
                     <img src="images/Massai earing2.jpg" alt="Gold Earrings" class="product-image">
                     <p>Gold Earrings</p>
                     <p>$12.00</p>
-                    <button onclick="selectProduct(this,'Gold Earrings',12,'Massai earing2.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Gold Earrings',12,'Massai earing2.jpg')">Add</button>
                 </div>
 
                 <div class="product-card">
                     <img src="images/Massai earing3.jpg" alt="Traditional Earrings" class="product-image">
                     <p>Traditional Earrings</p>
                     <p>$9.00</p>
-                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai earing3.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai earing3.jpg')">Add</button>
                 </div>
 
                  <div class="product-card">
                     <img src="images/Massai Earing4.jpg" alt="Traditional Earrings" class="product-image">
                     <p>Traditional Earrings</p>
                     <p>$9.00</p>
-                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai Earing4.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai Earing4.jpg')">Add</button>
                 </div>
 
                  <div class="product-card">
                     <img src="images/Massai Earing5.jpg" alt="Traditional Earrings" class="product-image">
                     <p>Traditional Earrings</p>
                     <p>$9.00</p>
-                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai Earing5.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai Earing5.jpg')">Add</button>
                 </div>
 
                  <div class="product-card">
                     <img src="images/Massai earing6.jpg" alt="Traditional Earrings" class="product-image">
                     <p>Traditional Earrings</p>
                     <p>$9.00</p>
-                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai earing6.jpg')">Select</button>
+                    <button onclick="selectProduct(this,'Traditional Earrings',9,'Massai earing6.jpg')">Add</button>
                 </div>
 
             </div>

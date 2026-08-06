@@ -372,3 +372,67 @@ button:disabled {
         font-size: 24px;
     }
 }
+
+/* =========================
+   PRODUCT CONTROLS
+========================= */
+
+.product-controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:15px 0;
+}
+
+/* Add Button */
+
+.add-btn{
+    background:#d1007a;
+    color:white;
+    border:none;
+    border-radius:6px;
+    padding:10px 25px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.add-btn:hover{
+    background:#a0005d;
+}
+
+/* Quantity Box */
+
+.qty-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+/* + and - buttons */
+
+.qty-btn{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:none;
+    background:#d1007a;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.qty-btn:hover{
+    background:#a0005d;
+}
+
+/* Number */
+
+.qty-number{
+    font-size:20px;
+    font-weight:bold;
+    min-width:25px;
+    text-align:center;
+}
