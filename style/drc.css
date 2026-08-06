@@ -99,6 +99,78 @@ h2{
     background:#a0005d;
 }
 
+/* ===========================
+   VODACOM PAYMENT
+=========================== */
+
+.payment-title{
+    text-align:center;
+    color:#d1007a;
+    margin-top:30px;
+}
+
+.payment-text{
+    text-align:center;
+    color:#555;
+    margin:20px 0;
+}
+
+.payment-input{
+    width:300px;
+    max-width:90%;
+    display:block;
+    margin:20px auto;
+    padding:14px;
+    font-size:16px;
+    border:2px solid #d1007a;
+    border-radius:8px;
+    outline:none;
+}
+
+.payment-input:focus{
+    border-color:#a0005d;
+}
+
+.payment-details{
+    width:300px;
+    max-width:90%;
+    margin:25px auto;
+    padding:20px;
+    background:#fff5fb;
+    border:2px solid #d1007a;
+    border-radius:10px;
+}
+
+.payment-details p{
+    margin:12px 0;
+    font-size:17px;
+}
+
+.agent-number{
+    color:#d1007a;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.provider-btn{
+    display:block;
+    width:300px;
+    max-width:90%;
+    margin:30px auto;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:#d1007a;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.provider-btn:hover{
+    background:#a0005d;
+}
+
 /* Responsive */
 
 @media(max-width:600px){

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRC Payment - MariaHouse</title>
+    
+    <link rel="stylesheet" href="style/drc.css">
+    
+</head>
+<body>
+
+<div class="app-container">
+
+
+
+
+
+<img src="images/MH logo.png" alt="MariaHouse Logo" class="logo-image">
+
+<div class="logo">Maria<span>House</span></div>
+
+<h2 class="payment-title">Vodacom M-Pesa</h2>
+
+<p class="payment-text">
+Enter the phone number registered with your Vodacom M-Pesa account.
+</p>
+
+<input
+    type="tel"
+    id="phone"
+    class="payment-input"
+    placeholder="08XXXXXXXXX"
+    maxlength="10">
+
+<div class="payment-details">
+
+    <p>
+        <strong>Agent Number:</strong>
+        <span class="agent-number">03320214</span>
+    </p>
+
+    <p>
+        <strong>Amount to Pay:</strong>
+        <span id="payment-amount">Loading...</span>
+    </p>
+
+</div>
+
+<button class="provider-btn" onclick="continuePayment()">
+    Continue
+</button>
+
+</div>
+
+<script src="script/payment.js" ></script>
+</body>
+</html>

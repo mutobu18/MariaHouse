@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Payment - MariaHouse</title>
+    
+    <link rel="stylesheet" href="style/drc.css">
+    <link rel="stylesheet" href="style/confirm.css">
+</head>
+<body>
+
+<div class="app-container">
+
+   <img src="images/MH logo.png" alt="MariaHouse Logo" class="logo-image">
+
+<div class="logo">Maria<span>House</span></div> 
+
+    <h2 class="payment-title">Confirm Payment</h2>
+
+    <div class="payment-details">
+
+        <p><strong>Phone Number:</strong></p>
+        <p id="confirm-phone"></p>
+
+        <p><strong>Agent Number:</strong></p>
+        <p>03320214</p>
+
+        <p><strong>Amount:</strong></p>
+        <p id="confirm-amount"></p>
+
+    </div>
+
+    <button class="provider-btn" onclick="confirmPayment()">
+        PAY
+    </button>
+
+</div>
+
+<script src="script/confirm.js"></script>
+
+</body>
+</html>

@@ -143,6 +143,8 @@ function loadCartPage() {
     itemsCount.textContent = totalItems;
     discountEl.textContent = discount.toFixed(2);
     totalEl.textContent = finalTotal.toFixed(2);
+
+    localStorage.setItem("cartTotal", finalTotal.toFixed(2));
 }
 
 // =========================
@@ -249,3 +251,28 @@ function openKenyaMpesa(){
 function openZambiaMpesa(){
     window.location.href = "mpesa://";
 }
+
+
+
+// Get saved phone number
+const phone = localStorage.getItem("customerPhone");
+
+// Get total amount
+const amount = localStorage.getItem("cartTotal");
+
+// Display details
+document.getElementById("confirm-phone").textContent =
+phone || "Not provided";
+
+document.getElementById("confirm-amount").textContent =
+(amount || "0") + " FC";
+
+function confirmPayment(){
+
+    alert(
+        "Your payment request will now be sent to Vodacom M-Pesa."
+    );
+
+    
+}
+

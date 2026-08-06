@@ -1,0 +1,92 @@
+
+
+.payment-title{
+    text-align:center;
+    color:#d1007a;
+    font-size:30px;
+    margin-top:30px;
+    margin-bottom:25px;
+}
+
+.payment-details{
+    width:90%;
+    max-width:500px;
+    margin:30px auto;
+    background:#ffffff;
+    border:2px solid #d1007a;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.payment-details p{
+    margin:15px 0;
+    font-size:18px;
+    color:#444;
+}
+
+.payment-details strong{
+    color:#d1007a;
+}
+
+#confirm-phone,
+#confirm-amount{
+    font-size:20px;
+    font-weight:bold;
+    color:#222;
+}
+
+.provider-btn{
+    display:block;
+    width:300px;
+    max-width:90%;
+    margin:35px auto;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#d1007a;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.provider-btn:hover{
+    background:#a0005d;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(209,0,122,0.3);
+}
+
+.provider-btn:active{
+    transform:scale(.98);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .payment-title{
+        font-size:26px;
+    }
+
+    .payment-details{
+        width:95%;
+        padding:20px;
+    }
+
+    .payment-details p{
+        font-size:16px;
+    }
+
+    #confirm-phone,
+    #confirm-amount{
+        font-size:18px;
+    }
+
+    .provider-btn{
+        width:90%;
+        font-size:17px;
+    }
+
+}
