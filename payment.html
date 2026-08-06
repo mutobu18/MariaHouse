@@ -43,26 +43,28 @@
 </header>
 
 <div class="payment-card">
-    <h2>Payment Instructions</h2>
-
-    <p>Pay using the following methods:</p>
-
-    <ul>
-        <li><strong>Mpesa  Airtel:</strong> 0974510248 /Nelly </li>
-        <li><strong>Mpesa   :</strong> 03320214/KATIKA </li>
-        
-    </ul>
-
-    <h3>After payment, send confirmation screenshot to this Number +254 799457771.</h3>
-
     
-    
- <button onclick="sendOrder()">
-    Send Order
-</button>
 
+<div class="payment-methods">
+
+   <div class="payment-methods">
+
+    <h2>Pay with M-Pesa</h2>
+
+    <button class="country-btn" onclick="window.location.href='drc-payment.html'">  DRC M-Pesa</button>
+         
     
-</form>
+
+    <button class="country-btn" onclick="openKenyaMpesa()">
+         Kenya M-Pesa
+    </button>
+
+    <button class="country-btn" onclick="openZambiaMpesa()">
+         Zambia M-Pesa
+    </button>
+
 </div>
 
 <script src="script/script.js"></script>
+</body>
+</html>

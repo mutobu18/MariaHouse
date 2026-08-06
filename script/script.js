@@ -240,3 +240,12 @@ function sendOrder() {
     // Go to receipt page
     window.location.href = "receipt.html";
 }
+
+function openKenyaMpesa(){
+    window.location.href = "mpesa://";
+}
+
+
+function openZambiaMpesa(){
+    window.location.href = "mpesa://";
+}

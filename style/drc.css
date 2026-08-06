@@ -1,0 +1,116 @@
+/* ===========================
+   DRC PAYMENT PAGE
+=========================== */
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f8f8f8;
+}
+
+.app-container{
+    max-width:500px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+/* Logo */
+
+.logo-image{
+    width:90px;
+    margin-bottom:10px;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#d1007a;
+    margin-bottom:25px;
+}
+
+.logo span{
+    color:#000;
+}
+
+/* Heading */
+
+h2{
+    color:#333;
+    margin-bottom:30px;
+}
+
+/* Provider Buttons */
+
+.provider-btn{
+    width:100%;
+    padding:18px;
+    margin:15px 0;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* Vodacom */
+
+.provider-btn.vodacom{
+    background:#e60000;
+    color:white;
+}
+
+.provider-btn.vodacom:hover{
+    background:#b80000;
+    transform:scale(1.03);
+}
+
+/* Airtel */
+
+.provider-btn.airtel{
+    background:#ff0000;
+    color:white;
+}
+
+.provider-btn.airtel:hover{
+    background:#cc0000;
+    transform:scale(1.03);
+}
+
+/* Back Button */
+
+.back-btn{
+    display:inline-block;
+    margin-top:25px;
+    text-decoration:none;
+    background:#d1007a;
+    color:white;
+    padding:12px 25px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#a0005d;
+}
+
+/* Responsive */
+
+@media(max-width:600px){
+
+    .app-container{
+        width:90%;
+        padding:20px;
+    }
+
+    .provider-btn{
+        font-size:16px;
+        padding:15px;
+    }
+
+}
